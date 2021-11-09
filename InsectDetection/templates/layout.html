@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Flask Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link href="/static/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
+    <!-- banner slider -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //Custom-Files -->
+    <!-- Web-Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mada:200,300,400,500,600,700,900&amp;subset=arabic" rel="stylesheet">
+    <!-- //Web-Fonts -->
+</head>
+
+<body>
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Insect Detection System</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('upload_file') }}">Upload</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <header>
+        <div class="container-fluid" style="background-color:gold">
+            <div class="header d-md-flex justify-content-between align-items-center py-sm-4 py-3 px-xl-5 px-lg-3 px-2">
+                <!-- logo -->
+                <div id="logo">
+                    <h1><a class="" href="{{ url_for('home') }}">Crop Insect Detection</a></h1>
+                </div>
+                <!-- //logo -->
+                <!-- nav -->
+                <div class="nav_w3ls">
+                    <nav>
+                        <label for="drop" class="toggle toogle-2">Menu</label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+                            <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+                            <!--<li class="mx-lg-4 mx-md-3 my-md-0 my-2"><a href="about.html">About Us</a></li>-->
+                            <!--<li class="mx-lg-4 mx-md-3 my-md-0 my-2"><a href="gallery.html">Gallery</a></li>-->
+                            <li class="mx-lg-4 mx-md-3 my-md-0 my-2">
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">
+                                    Modules <span class="fa fa-angle-down" aria-hidden="true"></span>
+                                </label>
+                                <a href="#">Modules <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2" />
+                                <ul>
+                                    <li><a href="#best" class="drop-text">Upload Input</a></li>
+                                    <li><a href="about.html" class="drop-text">Image Processing</a></li>
+                                    <li><a href="#testi" class="drop-text">Predict Insects</a></li>
+                                    <li><!--<a href="#newsletter" class="drop-text">Newsletter</a>--></li>
+                                </ul>
+                            </li>
+                            <li class="mx-lg-4 mx-md-3 my-md-0 my-2"><a href="{{ url_for('upload_file') }}">Upload Crop Image</a></li>
+
+                           
+                                {% if session['username'] %}
+                                
+                                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                                    <li><span class="glyphicon glyphicon-user"></span><a href="{{ url_for('logout') }}">{{session['username']}}</a> </li>
+                               
+                                {% endif %}
+                                {% if not session['username'] %}
+                              
+                                    <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                    <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                               
+                                {% endif %}
+                            
+                        </ul>
+                    </nav>
+                </div>
+                <!-- //nav -->
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <div >
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - My Flask Application</p>
+        </footer>
+    </div>
+
+    <!--<script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>-->
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

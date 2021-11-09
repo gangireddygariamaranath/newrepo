@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<div class="image123">
+    
+    <div class="imageContainer">
+        <img src="{{ url_for('static', filename = 'input.jpg') }}" alt="User Image" >
+
+        <p>This is Input Image</p>
+    </div>
+    <div class="imageContainer">
+        <img src="{{ url_for('static', filename = 'Detected.jpg') }}" alt="User Image" >
+        <p>This is image Output Image</p>
+    </div>
+</div>
+
+<p>
+    
+</p>
+
+{% endblock %}
